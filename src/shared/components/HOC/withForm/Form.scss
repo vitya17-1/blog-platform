@@ -1,0 +1,194 @@
+@use '@shared/ui/styles/mixins.scss' as mixins;
+@use '@shared/ui/styles/variables.scss' as vars;
+
+.base-form {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    padding: 48px 32px; 
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 28vw;
+    margin: 0 auto;
+
+    .error-message {
+        color: #F44336;
+        font-size: 12px;
+    }
+
+    fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    h2 {
+        @include mixins.font('form_title');
+        margin: 0;
+        text-align: center;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            @include mixins.font('form_label');
+            font-size: 14px;
+            color: #333;
+        }
+
+        input {
+            padding: 12px;
+            border: 1px solid #E0E0E0;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+
+            &:focus {
+                border-color: #2196F3;
+            }
+
+            &::placeholder {
+                color: #9E9E9E;
+            }
+
+            & + .error-message {
+                margin-top: 4px;
+            }
+            
+            &:has(+ .error-message) {
+                border-color: #F5222D;
+            }
+        }
+
+        &.checkbox-group {
+            padding-top:8px;
+            margin-top:5px;
+            border-top: 1px solid #E0E0E0;
+
+            .input-container {
+                display: flex;
+                flex-direction: row;
+                align-items: start;
+                gap: 8px;
+            }
+
+            input[type="checkbox"] {
+                appearance: none;
+                -webkit-appearance: none;
+                padding:8px;
+                width: 16px;
+                height: 16px;
+                border: 1px solid #E0E0E0;
+                border-radius: 3px;
+                outline: none;
+                cursor: pointer;
+                position: relative;
+
+                &:checked {
+                    background-color: #2196F3;
+                    border-color: #2196F3;
+                    
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        left: 5px;
+                        top: 2px;
+                        width: 4px;
+                        height: 8px;
+                        border: solid white;
+                        border-width: 0 2px 2px 0;
+                        transform: rotate(45deg);
+                    }
+                }
+
+                &:hover {
+                    border-color: #2196F3;
+                }
+            }
+
+            & label {
+                @include mixins.font('form_agreeTermsText');
+                position:relative;
+                top:-5px;
+            }
+        }
+    }
+
+    .form-button {
+        background: #2196F3;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: transform 0.4s ease-out;
+            transform: skewX(-15deg);
+            z-index: 0;
+        }
+        
+        &:hover {
+            background: #1976D2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(33, 150, 243, 0.3);
+            
+            &::before {
+                transform: translateX(200%) skewX(-15deg);
+            }
+        }
+        
+        &:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(33, 150, 243, 0.2);
+        }
+
+        &:disabled {
+            background: #E0E0E0;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            
+            &::before {
+                display: none;
+            }
+        }
+
+    }
+
+    .form-link {
+        text-align: center;
+        margin: 0;
+        font-size: 12px;
+        color: #8c8c8c;
+
+        a {
+            color: #2196F3;
+            text-decoration: none;
+            margin-left: 4px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

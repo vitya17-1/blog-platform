@@ -1,0 +1,16 @@
+@use './shared/ui/styles/reset.css';
+@use 'normalize.css';
+@use './shared/ui/styles/mixins.scss' as mixins;
+
+:root {
+  height:100vh;
+  overflow-y: auto;
+  @include mixins.font();
+  box-sizing: border-box;
+  background-color: #EBEEF3;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

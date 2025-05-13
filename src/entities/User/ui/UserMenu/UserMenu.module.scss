@@ -1,0 +1,90 @@
+@use '@shared/ui/styles/mixins.scss' as mixins;
+@use '@shared/ui/styles/variables.scss' as vars;
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:27px;
+
+  .button {
+    @include mixins.font('header_button');
+    align-content: center;
+    width: 109px;
+    height: 51px;
+    background-color: transparent;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: transform 0.4s ease-out;
+      transform: skewX(-15deg);
+      z-index: -1;
+    }
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      
+      &::before {
+        transform: translateX(200%) skewX(-15deg);
+      }
+    }
+    
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    &--create{
+      color:#52C41A;
+      white-space: nowrap;
+      padding: 6px 10px;
+      height: 31px;
+      width: auto;
+      font-size: 14px;
+      &:hover {
+        outline: 1px solid #52C41A;
+        background-color: rgba(82, 196, 26, 0.1);
+      }
+    }
+
+    &--signIn {
+      &:hover {
+        outline: 1px solid gray;
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+    }
+  
+    &--signUp {
+      color:#52C41A;
+      &:hover {
+        outline: 1px solid #52C41A;
+        background-color: rgba(82, 196, 26, 0.1);
+      }
+    }
+  
+    &--signOut {
+      color:rgb(0, 0, 0, .7);
+      &:hover {
+        outline: 1px solid rgb(0, 0, 0, .7);
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+
+}

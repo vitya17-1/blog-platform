@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "incremental": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "allowJs": true, 
+    "baseUrl": "./src",
+    "noImplicitAny": false,
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "strictNullChecks": true,
+
+    "paths": {
+      "@app/*": ["./app/*"],
+      "@entities/*": ["./entities/*"],
+      "@features/*": ["./features/*"],
+      "@pages/*": ["./pages/*"],
+      "@shared/*": ["./shared/*"], 
+      "@assets/*" : ["./assets/*"],
+      "@widgets/*" : ["./widgets/*"],
+    },
+  },
+  "exclude": ["node_modules", "dist", "public", "temp"],
+}

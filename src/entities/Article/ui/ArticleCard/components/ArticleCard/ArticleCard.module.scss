@@ -1,0 +1,135 @@
+@use '@shared/ui/styles/mixins.scss' as mixins;
+@use '@shared/ui/styles/variables.scss' as vars;
+
+article {
+    display: grid;
+    box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.2), 0 5px 6px 0 rgba(0, 0, 0, 0.09);
+    background-color: #fff;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 10px;
+    cursor: default;
+    
+    & .titleContainer {
+        grid-area: title;
+        display: flex;
+        justify-content: flex-start;
+        gap:13px;
+        align-items: center;
+        margin-right:10px;
+        & .title {
+            @include mixins.font('card_title');
+            width: fit-content;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    
+        & .likes {  
+            flex-shrink:0;
+            width: fit-content;
+            border: none;
+            background: none;
+            padding: 0;
+            margin: 0;
+            @include mixins.font('card_textContent');
+            position: relative;
+            transition: all 0.3s ease;
+            
+            &:hover:not(:disabled){
+                cursor: pointer;
+                transform: scale(1.1) translateY(-2px);
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                
+                &:before {
+                    filter: drop-shadow(0 2px 3px rgba(255, 0, 0, 0.3));
+                    transform: scale(1.1);
+                }
+            }
+            
+            &:active:not(:disabled) {
+                transform: scale(1) translateY(0);
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+
+    & .description {
+        grid-area: description;
+        @include mixins.font('card_textContent');
+    
+        &.description--truncated {
+            cursor: pointer;
+            overflow: hidden;
+            overflow-wrap: break-word;
+            text-overflow: ellipsis;
+
+            // Многострочное обрезание текста с многоточием
+            display: -webkit-box;
+            -webkit-line-clamp: vars.$visibleTextLinesCount;
+            -webkit-box-orient: vertical;
+        
+            &.showMoreDescription {
+                cursor: pointer;
+                position: relative;
+                
+                &:after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 30%;
+                    height: vars.$font-line-height-md;
+                    background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff 70%);
+                }
+            }
+        }
+        
+    } 
+
+    &:hover {
+        transition: all 250ms ease-in-out;
+        box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 5px rgba(0, 0, 0, 0.09);
+    }
+
+    &.detailed {
+        height: 74vh;
+        width:65vw;
+        grid-template-areas: "title userInfo"
+        "tags userInfo"
+        "description articleActions"
+        "body body";
+        grid-template-rows: min-content min-content min-content 1fr;
+        grid-template-columns: minmax(26px, 1fr) min-content;
+        column-gap: 5vw;
+
+        & .description {
+            grid-area: description;
+            margin: 16px 0 25px 0;
+            color:gray;
+        }
+
+        & .bodyText {
+            grid-area: body;
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            & img {
+                width: 80%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    &.compact{
+        min-height: 12vh;
+        grid-template-areas: "title userInfo"
+        "tags userInfo"
+        "description .";
+        grid-template-columns: minmax(30%, 1fr) min-content;
+        grid-template-rows: min-content 1fr calc(vars.$font-line-height-md * vars.$visibleTextLinesCount);
+        grid-template-rows: min-content min-content min-content;
+        gap: 4px 6vw;
+    }
+}

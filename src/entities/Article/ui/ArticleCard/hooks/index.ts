@@ -1,0 +1,1 @@
+export { useArticleAction } from './useArticleAction';

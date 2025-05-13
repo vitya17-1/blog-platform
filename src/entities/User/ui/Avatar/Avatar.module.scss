@@ -1,0 +1,13 @@
+.avatarContainer {
+    grid-area: avatar;
+    align-content: center;
+    width: 46px;
+    height: 46px;
+    & img {
+        width: 46px;
+        height: 46px;
+        margin: auto 0;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+}

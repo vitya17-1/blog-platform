@@ -1,0 +1,33 @@
+@import 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz@0,14..32;1,14..32&display=swap';
+
+$font-family: 'Inter', sans-serif;
+$font-size-xxlg: 28px;
+$font-size-xlg: 22px;
+$font-size-lg: 20px;
+$font-size-md: 18px;
+$font-size-sm: 14px;
+$font-size-xs: 12px;
+
+$font-weight: 400;
+$font-letter-spacing: 0;
+
+$font-line-height-sm: 15px;
+$font-line-height-md: 22px;
+$font-line-height-lg: 28px;
+$font-line-height-xlg: 32px;
+
+$font-color-main: rgba(0, 0, 0, 0.85);
+$font-color-secondary: rgba(0, 0, 0, 0.5);
+$font-color-tertiary: #1890FF;
+$font-color-header: #f8f9fa;
+$font-color-form-title: #262626;
+$form-agreeTerms-textColor: #595959;
+
+$main-page-bgcolor: #ebeef3;
+
+//Количество отображаемых строк 
+//описания статьи в списке статей
+$visibleTextLinesCount: 2;
+
+$header-height: 80px;
+$main-layout-height: calc(100vh - $header-height);

@@ -1,0 +1,34 @@
+@use '@shared/ui/styles/mixins.scss' as mixins;
+
+.userBadge {
+    display: grid;
+    grid-template-areas: "username avatar"
+    "articleCreationDate avatar";
+    column-gap: 12px;
+    text-align: end;
+    grid-template-columns: min-content min-content;
+    margin-left:auto;
+
+
+    & .username {
+        grid-area: username;
+        // white-space: nowrap;
+        // word-break: break-all;
+        @include mixins.font('card_userName');
+    }
+
+    & .articleCreationDate {
+        grid-area: articleCreationDate;
+        white-space: nowrap;
+        @include mixins.font('card_date');
+    }
+
+    & .avatar {
+        grid-area: avatar;
+        width: 46px;
+        height: 46px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin: auto 0;
+    }
+}

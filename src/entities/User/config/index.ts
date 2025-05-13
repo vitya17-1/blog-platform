@@ -1,0 +1,1 @@
+export { avatarLoadingTimeout } from './config';

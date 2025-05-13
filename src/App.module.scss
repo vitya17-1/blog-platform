@@ -1,0 +1,12 @@
+@use './shared/ui/styles/mixins.scss' as mixins;
+
+.header {
+  @include mixins.font('header');
+  display: flex;
+  height: 80px;
+  padding: 0 22px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}

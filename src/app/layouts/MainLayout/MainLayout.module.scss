@@ -1,0 +1,24 @@
+@use '@shared/ui/styles/mixins.scss' as mixins;
+@use '@shared/ui/styles/variables.scss' as vars;
+
+header {
+    @include mixins.font('header');
+    display: flex;
+    height: vars.$header-height;
+    padding: 0 22px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: vars.$font-color-header;
+}
+
+.title {
+    @include mixins.font('header');
+    text-decoration: none;
+}
+
+.mainLayout {
+    height: vars.$main-layout-height;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

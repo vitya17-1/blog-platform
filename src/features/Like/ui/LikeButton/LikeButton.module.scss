@@ -1,0 +1,60 @@
+.likeButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-size: 14px;
+
+  &:before {
+    content: url('@assets/heart.svg');
+    position: relative;
+    top: 3px;
+    margin-right:5px;
+    transition: all 0.3s ease;
+  }
+  
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  
+  &.liked {
+    &::before{
+      content: url('@assets/heart_filled.svg');
+      position: relative;
+      top: 3px;
+      margin-right:5px;
+      transition: all 0.3s ease;
+    }
+    .count {
+      color: #ff3366;
+    }
+  }
+}
+
+.icon {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.likeButton:hover .icon {
+  transform: scale(1.2);
+}
+
+.count {
+  font-weight: 500;
+  color: #4a4a4a;
+  transition: color 0.2s ease;
+}
